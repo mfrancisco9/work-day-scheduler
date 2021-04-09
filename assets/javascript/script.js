@@ -1,5 +1,4 @@
 var m = moment();
-
 var today = m.format('dddd');
 var thisHour = m.format('h:mm');
 var militaryHour = m.format('HH'); 
