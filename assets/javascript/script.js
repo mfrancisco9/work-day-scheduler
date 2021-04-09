@@ -15,13 +15,14 @@ function updateClock() {
 }
 updateClock();
 
+
 // loop for setting color based on time
 for (i=0; i < todoList.length; i++) {
     if (
-    $("#mainBoxesList").children().eq(i).children().eq(0).attr("data-time") < militaryHour) {
+    parseInt($("#mainBoxesList").children().eq(i).children().eq(0).attr("data-time")) < militaryHour) {
         $("#mainBoxesList").children().eq(i).children().eq(1).addClass("past")
     } else if (
-    $("#mainBoxesList").children().eq(i).children().eq(0).attr("data-time") > militaryHour) {
+    parseInt($("#mainBoxesList").children().eq(i).children().eq(0).attr("data-time")) > militaryHour) {
         $("#mainBoxesList").children().eq(i).children().eq(1).addClass("future")
     } else {
         $("#mainBoxesList").children().eq(i).children().eq(1).addClass("present")
@@ -33,15 +34,14 @@ $(".saveButton").on("click", function() {
     console.log($(this).parent().siblings(".eventbox").val());;
     localStorage.setItem(`text${$(this).parent().siblings(".hour").attr("data-time")}`, ($(this).parent().siblings(".eventbox").val()));
     console.log(localStorage);
-    // $(this).parent().siblings(".eventbox").attr("placeholder", "test");
 });
+
 
 
 // for loop to retrieve placeholder text:
 function setPlaceholder() {
 for (i=0; i < todoList.length; i++) {
     $("#mainBoxesList").children().eq(i).children().eq(1).attr("value", localStorage.getItem(`text${i+9}`));
-    console.log(localStorage.getItem(`text${i+9}`));
 }
 }
 
