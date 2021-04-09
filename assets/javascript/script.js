@@ -16,7 +16,6 @@ function updateClock() {
 }
 updateClock();
 
-
 // loop for setting color based on time
 for (i=0; i < todoList.length; i++) {
     if (
@@ -36,7 +35,7 @@ $(".saveButton").on("click", function() {
     localStorage.setItem(`text${$(this).parent().siblings(".hour").attr("data-time")}`, ($(this).parent().siblings(".eventbox").val()));
     console.log(localStorage);
     // $(this).parent().siblings(".eventbox").attr("placeholder", "test");
-}an
+});
 
 
 // for loop to retrieve placeholder text:
@@ -46,6 +45,7 @@ for (i=0; i < todoList.length; i++) {
     console.log(localStorage.getItem(`text${i+9}`));
 }
 }
+
 setPlaceholder();
 
 
